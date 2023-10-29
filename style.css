@@ -1,0 +1,15 @@
+.container {
+    width: 512px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-item {
+    width: 30px; /* Set the width of each square */
+    height: 30px; /* Set the height of each square */
+    border: 1px solid #000; /* Add a border for better visualization */
+}
+
+.size {
+    margin: 20px 0px;
+}
