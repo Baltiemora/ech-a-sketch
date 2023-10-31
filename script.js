@@ -1,21 +1,27 @@
+//Gloabl variables
+const gridSize = document.querySelector('.btnSize');
 let cont = document.querySelector('.container');
 
+//Create default 16x16 grid after load the page
 
 for (let i = 0; i < 16; i++) {
+    let divContainer = document.createElement('div');
+    divContainer.className = 'div-container';
+    cont.appendChild(divContainer);
     for (let j = 0; j < 16; j++) {
         let div = document.createElement('div');
         div.className = 'grid-item';
-        cont.appendChild(div);
+        divContainer.appendChild(div);
     }
 }
 
+//Draw physics
 let divs = document.querySelectorAll('.grid-item');
 divs.forEach((div) => div.addEventListener('mouseenter', () => {
-    div.style.backgroundColor = 'red';
+    div.style.backgroundColor = '#202020';
 }));
 
-const size = document.querySelector('.size');
-
+//Ask grid size
 function askSize() {
     let answer = prompt('What size of the grid do you want?');
 
@@ -26,24 +32,28 @@ function askSize() {
     }
 }
 
-size.addEventListener('click', () => {
+//Change grid size
+gridSize.addEventListener('click', () => {
     let userSize;
     userSize = askSize();
 
-    let oldDivs = document.querySelectorAll('.grid-item');
-    oldDivs.forEach((div) => cont.removeChild(div));
+    let oldRows= document.querySelectorAll('.div-container');
+    oldRows.forEach((row) => cont.removeChild(row));
 
     for (let i = 0; i < userSize; i++) {
+        let divContainer = document.createElement('div');
+        divContainer.className = 'div-container';
+        cont.appendChild(divContainer);
         for (let j = 0; j < userSize; j++) {
             let div = document.createElement('div');
             div.className = 'grid-item';
-            cont.appendChild(div);
+            divContainer.appendChild(div);
         }
     }
 
     let divs = document.querySelectorAll('.grid-item');
 divs.forEach((div) => div.addEventListener('mouseenter', () => {
-    div.style.backgroundColor = 'red';
+    div.style.backgroundColor = '#202020';
 }));
 
 });
